@@ -4,11 +4,10 @@ Programa en Java que administra un catálogo de películas desde la consola
 mediante un menú interactivo (agregar, mostrar, buscar, modificar y eliminar).
 
 ## Integrantes
-- Brayan Sánchez - Menú, navegación, eliminación y validaciones
-- Mateo Aguilar - ...
-- Integrante 3 - ...
-- Integrante 4 - ...
+=====================Brayan Alejandro Sanchez Orozco - Menú, navegación, eliminación y validaciones===============
+==================================Yohan Julio Tobón - Registro y visualización====================================
+==================================Mateo Aguilar - Búsqueda y modificación=========================================
 
-## Cómo ejecutar
+## Cómo se ejecutar
 1. Compilar: `javac src/Main.java`
 2. Ejecutar: `java -cp src Main`
