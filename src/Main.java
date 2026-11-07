@@ -94,10 +94,53 @@ public class Main {
 
                 case 3:
                     // TODO Mateo Aguilar: Buscar pelicula
+                    System.out.println("Ingrese el nombre de la pelicula");
+                    String titulo = scanner.nextLine();
+
+                    boolean encontrada = false;
+                    for (int i = 0; i < cantidad; i++) {
+                        if (titulos[i].equalsIgnoreCase(titulo.trim())) {
+                            System.out.println("La pelicula se encuentra en el catalogo");
+                            encontrada = true;
+                            break;
+                        }
+                    }
+                    if (!encontrada) {
+                        System.out.println("La pelicula no se encontró");
+                    }
                     break;
 
                 case 4:
                     // TODO Mateo Aguilar: Modificar pelicula
+                    System.out.println("Ingrese el nombre de la pelicula que quiere modificar");
+                    String tituloModificar = scanner.nextLine();
+                    boolean encontrarModificar = false;
+                    for (int i =0; i< cantidad; i++) {
+                        if (titulos[i].equalsIgnoreCase(tituloModificar.trim())){
+                            System.out.println("Ingrese el nombre de la nueva pelicula");
+                            String nuevoTitulo = scanner.nextLine();
+                            titulos[i] = nuevoTitulo;
+                            System.out.println("Ingrese el nombre del nuevo director");
+                            String nuevoDirector = scanner.nextLine();
+                            directores[i] = nuevoDirector;
+                            System.out.println("Ingrese el nuevo genero");
+                            String nuevoGenero = scanner.nextLine();
+                            generos[i] = nuevoGenero;
+                            System.out.println("Ingrese el nuevo año");
+                            int nuevoAnio = scanner.nextInt();
+                            anios[i] = nuevoAnio;
+                            System.out.println("Ingrese la nueva calificacion");
+                            double nuevaCalificacion = scanner.nextDouble();
+                            calificacion[i] = nuevaCalificacion;
+                            encontrarModificar = true;
+                            System.out.println("Pelicula modificada con exito.");
+                            break;
+                        }
+                    }
+                    if (!encontrarModificar) {
+                        System.out.println("La pelicula no se encontro.");
+                    }
+
                     break;
 
                 case 5:
