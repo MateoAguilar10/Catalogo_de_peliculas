@@ -27,13 +27,15 @@ public class Main {
             System.out.println("4. Modificar una pelicula");
             System.out.println("5. Eliminar una pelicula");
             System.out.println("6. Mostrar información");
-            System.out.println("7. Salir");
-            System.out.print("Seleccione alguna de las 7 opciones:  ");
+            System.out.println("7. Mostrar pelicula con mayor calificacion");
+            System.out.println("8. Mostrar pelicula con menor calificacion");
+            System.out.println("9. Salir");
+            System.out.print("Seleccione alguna de las 9 opciones:  ");
 
             // VALIDACION (BRAYAN SANCHEZ): Funcion para que solo acepte numeros que sean
             // enteros
             while (!scanner.hasNextInt()) {
-                System.out.print("Opcion no valida. Digite un numero del 1 al 7:  ");
+                System.out.print("Opcion no valida. Digite un numero del 1 al 9:  ");
 
                 scanner.next();
             }
@@ -174,7 +176,7 @@ public class Main {
                         System.out.println("2. No");
                         System.out.println("Seleccione: ");
 
-                        while (scanner.hasNextInt()) {
+                        while (!scanner.hasNextInt()) {
                             System.out.println("ENTRADA INVALIDA. Escriba 1 o 2: ");
                             scanner.next();
                         }
@@ -229,17 +231,75 @@ public class Main {
                     break;
 
                 case 7:
+                    // PELICULA CON MAYOR CALIFICACION
+                    System.out.println("========================================");
+                    System.out.println("Pelicula con mayor calificacion");
+                    System.out.println("========================================");
+                    if (cantidad == 0) {
+                        System.out.println("No hay peliculas registradas.");
+                    } else {
+                        // Primero busca1 la calificacion mas alta
+                        double mayorCalif = calificacion[0];
+                        for (int i = 1; i < cantidad; i++) {
+                            if (calificacion[i] > mayorCalif) {
+                                mayorCalif = calificacion[i];
+                            }
+                        }
+                        // Luego muestra las que tengan esa calificacion (por si hay bastantes)
+                        for (int i = 0; i < cantidad; i++) {
+                            if (calificacion[i] == mayorCalif) {
+                                System.out.println("Titulo: " + titulos[i]);
+                                System.out.println("Director: " + directores[i]);
+                                System.out.println("Genero: " + generos[i]);
+                                System.out.println("Año: " + anios[i]);
+                                System.out.println("Calificacion: " + calificacion[i]);
+                                System.out.println("----------------------------------------");
+                            }
+                        }
+                    }
+                    break;
+
+                case 8:
+                    // PELICULA CON MENOR CALIFICACION
+                    System.out.println("========================================");
+                    System.out.println("Pelicula con menor calificacion");
+                    System.out.println("========================================");
+                    if (cantidad == 0) {
+                        System.out.println("No hay peliculas registradas.");
+                    } else {
+                        // Primero busca la calificacion mas baja
+                        double menorCalif = calificacion[0];
+                        for (int i = 1; i < cantidad; i++) {
+                            if (calificacion[i] < menorCalif) {
+                                menorCalif = calificacion[i];
+                            }
+                        }
+                        // Luego muestra todas las que tengan la misma calificacion (por si hay muchas)
+                        for (int i = 0; i < cantidad; i++) {
+                            if (calificacion[i] == menorCalif) {
+                                System.out.println("Titulo: " + titulos[i]);
+                                System.out.println("Director: " + directores[i]);
+                                System.out.println("Genero: " + generos[i]);
+                                System.out.println("Año: " + anios[i]);
+                                System.out.println("Calificacion: " + calificacion[i]);
+                                System.out.println("----------------------------------------");
+                            }
+                        }
+                    }
+                    break;
+
+                case 9:
                     System.out.println("!!!FUE UN GUSTO SABER QUE TE GUSTO NUESTRO CATALOGO...¡¡¡¡");
                     break;
 
                 default:
-                    System.out.println("Opcion invalida. Elija un numero del 1 a 7.");
+                    System.out.println("Opcion invalida. Elija un numero del 1 a 9.");
 
             }
 
             System.out.println();
 
-        } while (opcion != 7);
+        } while (opcion != 9);
 
         scanner.close();
     }
